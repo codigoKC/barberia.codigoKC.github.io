@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Barbería XYZ</title>
+    <link rel="stylesheet" href="estilos.css"> <!-- Vínculo al archivo CSS -->
+</head>
+<body>
+
+    <script type="module" src="/js/three.js"></script>
+    <script type="module" src="/js/vidrio.js"></script>
+  
+    <section id="pantalla-inicio" class="pantalla">
+        <div class="contenedor-logo">
+            <img src="/assets/img/logo.png" alt="Logo de la Barbería XYZ" id="logo">
+        </div>
+        <p>¡Bienvenidos a PROSPERO BARBER SHOP.</p>
+        <button id="boton-entrar">Entrar a la barberia</button>
+    </section>
+
+    <!-- Sección de animación 3D -->
+    <section id="pantalla-animacion" class="pantalla" >
+        <div id="escena-3d" class="escena-3d">
+            <canvas class="webgl-animacion"></canvas> <!-- Aquí se renderiza la animación 3D -->
+        </div>
+    </section>
+
+    <!-- Sección de opciones después de la animación -->
+    <section id="pantalla-opciones" class="pantalla" style="display: none;">
+        <div class="contenedor-opciones">
+            <h2>Elija una opción</h2>
+            <button id="btn-reservar" class="boton-opcion">Reservar</button>
+            <button id="btn-ubicacion" class="boton-opcion">Ubicación</button>
+            <button id="btn-contacto" class="boton-opcion">Contacto</button>
+        </div>
+    </section>
+
+    <!-- Sección de formulario de reserva -->
+    <section id="pantalla-reservar" class="pantalla" style="display: none;">
+        <div class="contenedor-formulario">
+            <h2>Reservar una cita</h2>
+            <form id="formulario-reserva">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha" name="fecha" required>
+
+                <label for="hora">Hora:</label>
+                <input type="time" id="hora" name="hora" required>
+
+                <label for="servicio">Servicio:</label>
+                <select id="servicio" name="servicio" required>
+                    <option value="corte">Corte de cabello</option>
+                    <option value="afeitado">Afeitado</option>
+                    <option value="ambos">Corte y afeitado</option>
+                </select>
+
+                <button type="submit">Reservar</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Sección de ubicación -->
+    <section id="pantalla-ubicacion" class="pantalla" style="display: none;">
+        <div class="contenedor-mapa">
+            <h2>Nuestra Ubicación</h2>
+            <div id="mapa">
+                <!-- Aquí integras Google Maps -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de contacto -->
+    <section id="pantalla-contacto" class="pantalla" style="display: none;">
+        <div class="contenedor-contacto">
+            <h2>Contacto</h2>
+            <p>Haz clic en el botón para contactarnos por WhatsApp</p>
+            <a href="https://wa.me/123456789" id="btn-whatsapp" class="boton-contacto">Contactar por WhatsApp</a>
+        </div>
+    </section>
+
+    <script src="app.js"></script> <!-- Vínculo al archivo de JavaScript -->
+</body>
+</html>

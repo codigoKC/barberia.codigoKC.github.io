@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+html{
+    padding: 0;
+    margin: 0;
+
+}
+
+/* Pantalla principal: logo, bienvenida y botón */
+#pantalla-inicio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* Encima de la escena 3D */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px); /* Efecto borroso inicial */
+    background-color: rgba(255, 255, 255, 0.3); /* Fondo semitransparente */
+    transition: backdrop-filter 1.5s ease, background-color 1.5s ease; 
+}
+#pantalla-inicio > p{
+    font-size: 2rem;
+}
+
+#boton-entrar{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative; /* For positioning the pseudo-element */
+}
+
+#pantalla-animacion{
+    z-index: -1;
+    opacity: 0.5;
+}
+/* Canvas de Three.js */
+#escena-3d {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Asegúrate de que esté por debajo de la primera sección, pero visible después */
+    opacity: 1; /* Asegúrate de que sea completamente visible */
+}
+/* Estilo del botón */
+#boton-entrar {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Cuando la pantalla principal desaparezca (después del clic), cambiar la opacidad */
+/* Clase que aclara el vidrio y oculta la primera pantalla */
+.aclarar-vidrio {
+    backdrop-filter: blur(0); /* Quita el desenfoque */
+    background-color: rgba(255, 255, 255, 0); /* Elimina el fondo semitransparente */
+    opacity: 0; /* Oculta completamente la pantalla principal */
+    pointer-events: none; /* Evita que el usuario interactúe con esta pantalla */
+    transition: opacity 1.5s ease, backdrop-filter 1.5s ease, background-color 1.5s ease;
+}
